@@ -1,0 +1,4 @@
+CREATE VIEW [Аудитории](Код, [Наименование аудитории])
+as SELECT AUDITORIUM, AUDITORIUM_NAME
+FROM AUDITORIUM
+WHERE AUDITORIUM_TYPE like 'ЛК%';
