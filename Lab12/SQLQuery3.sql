@@ -1,3 +1,4 @@
+use UNIVER;
 DECLARE @point varchar(3)
 
 BEGIN TRY

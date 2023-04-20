@@ -1,3 +1,4 @@
+use UNIVER;
 begin tran
 	insert AUDITORIUM_TYPE values ('ЛБ-П', 'Лабораторный с проектором')
 	begin tran

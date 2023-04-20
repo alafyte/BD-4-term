@@ -1,3 +1,7 @@
+--Неподтвержденное чтение, Неповторяющееся чтение, Фантомное чтение
+-- uncomitted - поддерживает неподтвержденное чтение, т.е. запросы между t1 и t2 выполняются даже без commit в B тран-ии
+
+use UNIVER;
 set transaction isolation level READ UNCOMMITTED 
 --------- A ---------
 begin transaction 

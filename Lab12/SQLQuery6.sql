@@ -1,17 +1,21 @@
+-- repeatable не допускает неподтвержденного и неповторяющегося чтения (если мы 
+--изменяем данные между двумя операциями чтения, то рез-т будет разным)
+use UNIVER;
+delete AUDITORIUM where AUDITORIUM = 'тест'
 -- A ---
 set transaction isolation level  REPEATABLE READ 
 begin transaction 
-select AUDITORIUM_CAPACITY from AUDITORIUM where AUDITORIUM = '1234'
+select AUDITORIUM_CAPACITY from AUDITORIUM where AUDITORIUM = 'тест'
 -------------------------- t1 ------------------ 
 -------------------------- t2 ------------------
 select case
        when AUDITORIUM_CAPACITY = 50 then 'insert'  else ' ' 
-end 'результат', AUDITORIUM from AUDITORIUM where AUDITORIUM = '1234'
+end 'результат', AUDITORIUM from AUDITORIUM where AUDITORIUM = 'тест'
 commit
 
 --- B ---	
 begin transaction 	  
 -------------------------- t1 --------------------
-insert AUDITORIUM values ('1234', 'ЛК-К', 10, 'тест');
+insert AUDITORIUM values ('тест', 'ЛК-К', 10, 'тест');
 commit
 -------------------------- t2 --------------------

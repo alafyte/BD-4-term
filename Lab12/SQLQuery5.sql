@@ -1,3 +1,5 @@
+-- commited - запросы между t1 и t2 не будут работать пока мы не произведем commit в тран-и B
+use UNIVER;
 set transaction isolation level READ COMMITTED 
 -- A ---
 begin transaction 
